@@ -2,6 +2,6 @@
 #'
 #' @export
 run_app <- function(...) {
-  app_dir <- system.file("shinypedidosecalc", package = "pedidosecalc")
+  app_dir <- system.file("shinypedidosecalc.R", package = "pedidosecalc")
   shiny::runApp(app_dir, display.mode = "normal")
 }

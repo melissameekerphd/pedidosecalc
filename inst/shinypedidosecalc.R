@@ -26,13 +26,15 @@ ui <- fluidPage(
 
     mainPanel(
 
-      h3("Weight"),
+      h2("Weight"),
+      tags$em("Weight only accepted between 1kg and 65kg.",
+              style = "font-size: 0.9em; color: gray;"),      br(),
       textOutput("display_weight"),
+      br(),
 
-      h3("Recommended Dose"),
-      tags$em("Reported as: exact dose (20% error range)",
-              style = "font-size: 0.9em; color: gray;"),
-      br(), br(),
+      h2("Recommended Dose"),
+      tags$em("Reported as exact dose (20% error range)",
+              style = "font-size: 0.9em; color: gray;"),      br(),
 
       textOutput("liquid"),
       textOutput("supp")

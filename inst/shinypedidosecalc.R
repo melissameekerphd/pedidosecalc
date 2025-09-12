@@ -27,7 +27,7 @@ ui <- fluidPage(
     mainPanel(
 
       h2("Weight"),
-      tags$em("Weight only accepted between 1kg and 65kg.",
+      tags$em("Weight only accepted between 0kg and 150kg.",
               style = "font-size: 0.9em; color: gray;"),      br(),
       textOutput("display_weight"),
       br(),
@@ -49,8 +49,10 @@ server <- function(input, output) {
   wt_kg <- reactive({
     w <- as.numeric(input$weight)
 
-    if (w < 1 || w > 65) {
+    if(w<0 || w>=150){
       return(NA)  # invalid input → missing
+    } else if(w>40){
+      return(40)
     } else {
       return(w)   # valid input → use directly
     }
@@ -58,7 +60,7 @@ server <- function(input, output) {
 
   # Display weight in kilograms
   output$display_weight <- renderText({
-    paste("Weight entered:", wt_kg(), "kg")
+    paste("Weight entered:", as.numeric(input$weight), "kg")
   })
 
   # Liquid dose calculations

@@ -11,7 +11,7 @@ library(shiny)
 
 # Creating User Interface
 ui <- fluidPage(
-  h1("Pediatric Dosing Calculator"),
+  titlePanel("Pediatric Dosing Calculator", windowTitle = "MEDS 3.5 Dosing Calculator"),
   h5(tags$em("Intended only for use in MEDS 3.5 study. Always confirm dosing with pharmacist.")),
 
   sidebarLayout(
